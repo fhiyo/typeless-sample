@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "outDir": "./dist/",
+    "lib": ["dom", "es2017"],
+    "module": "ES2015",
+    "target": "es5",
+    "types": ["reflect-metadata", "jest"],
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}
