@@ -4,8 +4,10 @@ export const SampleSymbol = Symbol('sample');
 
 export const [useModule, SampleActions, getSampleState] = createModule(SampleSymbol)
   .withActions({
-    startCount: null,
+    startInc: null,
+    startDec: null,
     countDone: (count: number) => ({ payload: { count } }),
+    dummy: null,
   })
   .withState<SampleState>();
 

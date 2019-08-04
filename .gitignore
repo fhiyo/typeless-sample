@@ -65,3 +65,4 @@ typings/
 # user settings
 /client/node_modules/
 client/public/
+/archive/*

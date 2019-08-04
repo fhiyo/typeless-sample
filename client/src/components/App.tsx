@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { DefaultTypelessProvider } from 'typeless';
 import { SampleModule } from '../modules/sample/module';
-// import { SelectUser } from '../modules/selectUser/components/SelectUser'
+import { SelectUserModule } from '../modules/selectUser/module'
 
 export const AllContents: React.StatelessComponent = () => {
   return (
     <div>
         <SampleModule />
-        {/* <SelectUser /> */}
+        <SelectUserModule />
     </div>
   );
 };
