@@ -9,9 +9,9 @@ const userMockServer: UserServer = {
     fetchAllUsers: () => {
         return new Promise<User[]>((resolve, reject) => {
             resolve([
-                {userId: 1, name: 'hoge'},
-                {userId: 2, name: 'fuga'},
-                {userId: 3, name: 'piyo'},
+                {userId: '1', name: 'hoge'},
+                {userId: '2', name: 'fuga'},
+                {userId: '3', name: 'piyo'},
             ]);
         })
     }
