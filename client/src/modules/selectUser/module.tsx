@@ -12,13 +12,18 @@ useModule
       .pipe(Rx.map((elems: User[]) => SelectUserActions.setAllUsers(elems)));
   })
   .on(SelectUserActions.$mounted, () =>
-    Rx.of(SelectUserActions.fetchAllUsers())
+    userService.fetchAllUsers()
+      .pipe(Rx.mergeMap((users) => {
+          return [
+            SelectUserActions.setAllUsers(users),
+            SelectUserActions.changeUser(users[0].userId)]
+      }))
   )
 
 
 const initialState: SelectUserState = {
   allUsers: [],
-  selected: null,
+  selected: {userId: '0', name: ''},
 };
 
 useModule
@@ -26,6 +31,11 @@ useModule
   .on(SelectUserActions.setAllUsers, (state, { users }) => {
       alert('SelectUserActions.setAllUsers: reducer called');
       state.allUsers = users;
+  })
+  .on(SelectUserActions.changeUser, (state, userId) => {
+      const user = state.allUsers.find(user => user.userId === userId);
+      console.log(`seleceted id: ${user!.userId}, name: ${user!.name}`)
+      state.selected = user!;
   })
 
 export const SelectUserModule = () => {

@@ -2,26 +2,29 @@ import { ActionMap, ConvertActions, createModule, HandleWithState, StateGetter }
 
 export const SelectUserSymbol = Symbol('selectUser');
 
-export type User = { userId: number, name: string }
+export type User = { userId: string, name: string }
 
 interface SelectUserActions extends ActionMap {
+    // fetchAllUsers: (users: User[]) => ({ payload: { users: User[] }});
     fetchAllUsers: null;
     setAllUsers: (users: User[]) => ({ payload: { users: User[] }});
-    changeUser: (userId: number) => ({ payload: number });
+    changeUser: (userId: string) => ({ payload: string });
     dummy: null;
 }
 
 export type SelectUserState = {
   allUsers: User[],
-  selected: User | null,
+  selected: User,
 }
 
 export const modules = createModule(SelectUserSymbol)
   .withActions<SelectUserActions>({
+    //   fetchAllUsers: (users: User[]) => ({ payload: { users }}),
       fetchAllUsers: null,
       setAllUsers: users => ({ payload: { users } }),
       changeUser: userId => ({ payload: userId }),
       dummy: null,
+      $init: null,
       $mounted: null,
   })
   .withState<SelectUserState>();
