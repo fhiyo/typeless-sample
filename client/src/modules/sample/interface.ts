@@ -1,6 +1,5 @@
 import { createModule } from 'typeless';
-
-export const SampleSymbol = Symbol('sample');
+import { SampleSymbol } from "./symbol";
 
 export const [useModule, SampleActions, getSampleState] = createModule(SampleSymbol)
   .withActions({
