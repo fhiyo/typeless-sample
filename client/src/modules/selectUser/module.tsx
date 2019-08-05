@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Rx from 'typeless/rx';
-import { User, SelectUserActions, SelectUserState, useModule } from './interface';
+import { User } from "../../types";
+import { SelectUserActions, SelectUserState, useModule } from './interface';
 import { SelectUser } from './components/SelectUser';
 import { userService } from '../../service/UserServer';
 
@@ -34,8 +35,10 @@ useModule
   })
   .on(SelectUserActions.changeUser, (state, userId) => {
       const user = state.allUsers.find(user => user.userId === userId);
-      console.log(`seleceted id: ${user!.userId}, name: ${user!.name}`)
-      state.selected = user!;
+      if (user) {
+        console.log(`seleceted id: ${user.userId}, name: ${user.name}`)
+        state.selected = user;
+      }
   })
 
 export const SelectUserModule = () => {
