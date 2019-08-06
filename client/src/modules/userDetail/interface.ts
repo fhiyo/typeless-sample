@@ -4,12 +4,14 @@ import { UserDetailSymbol } from "./symbol";
 
 export const [useModule, UserDetailActions, getUserDetailState] = createModule(UserDetailSymbol)
   .withActions({
-    startCount: null,
-    countDone: (count: number) => ({ payload: { count } }),
+    fetchUserDetail: null,
+    setUserDetail: (userDetails: UserDetail[]) => ({ payload: { userDetails }}),
+    changeUserDetail: (userId: string) => ({ payload: { userId }}),
+    $mounted: null,
   })
   .withState<UserDetailState>();
 
 export interface UserDetailState {
-  isLoading: boolean;
-  count: number;
+    selectedUserDetail: UserDetail;
+    allUserDetails: UserDetail[];
 }
