@@ -20,7 +20,7 @@ useModule
   })
   .on(SampleActions.countDone, (payload: {count: number}) => {
       alert(`call countDone, count: ${payload.count}`);
-      return Rx.of(SampleActions.dummy())
+      return Rx.empty();
   });
 
 const initialState: SampleState = {

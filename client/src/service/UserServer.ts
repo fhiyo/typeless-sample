@@ -1,5 +1,5 @@
 import * as Rx from 'typeless/rx';
-import { User } from '../modules/selectUser/interface';
+import { User } from '../types'
 
 interface UserServer{
     fetchAllUsers: () => Promise<User[]>

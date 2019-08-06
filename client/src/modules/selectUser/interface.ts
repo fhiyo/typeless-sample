@@ -1,8 +1,6 @@
 import { ActionMap, ConvertActions, createModule, HandleWithState, StateGetter } from 'typeless';
-
-export const SelectUserSymbol = Symbol('selectUser');
-
-export type User = { userId: string, name: string }
+import { User } from "../../types";
+import { SelectUserSymbol } from "./symbol";
 
 interface SelectUserActions extends ActionMap {
     // fetchAllUsers: (users: User[]) => ({ payload: { users: User[] }});

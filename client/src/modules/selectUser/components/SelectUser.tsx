@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { User } from "../../../types";
 import { useActions } from 'typeless';
-import { User, SelectUserActions, getSelectUserState } from '../interface';
+import { SelectUserActions, getSelectUserState } from '../interface';
 import { Form } from 'react-bootstrap';
 
 export const SelectUser = () => {

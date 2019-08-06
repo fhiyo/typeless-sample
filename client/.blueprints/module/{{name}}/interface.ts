@@ -1,6 +1,5 @@
 import { createModule } from 'typeless';
-
-export const {{pascalCase name}}Symbol = Symbol('{{name}}');
+import { {{pascalCase name}}Symbol } from './symbol'
 
 export const [useModule, {{pascalCase name}}Actions, get{{pascalCase name}}State] = createModule({{pascalCase name}}Symbol)
   .withActions({

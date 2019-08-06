@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { render, cleanup } from "@testing-library/react";
 import "jest-dom/extend-expect";
-import { {{pascalCase name}}Module } from './module';
+import { UserDetailModule } from './module';
 
 import { DefaultTypelessProvider } from 'typeless';
 
 const TypelessModule = () => {
   return (
     <DefaultTypelessProvider>
-      <{{pascalCase name}}Module />
+      <UserDetailModule />
     </DefaultTypelessProvider>
   )
 }
