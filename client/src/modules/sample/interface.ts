@@ -6,6 +6,7 @@ export const [useModule, SampleActions, getSampleState] = createModule(SampleSym
     startInc: null,
     startDec: null,
     countDone: (count: number) => ({ payload: { count } }),
+    countZeroAlert: null,
   })
   .withState<SampleState>();
 

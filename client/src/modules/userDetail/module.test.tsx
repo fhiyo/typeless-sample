@@ -18,7 +18,7 @@ afterEach(cleanup);
 describe('Something Tests', () => {
   it('Sample',  () => {
     const { getByTestId } = render(<TypelessModule />);
-    expect(getByTestId("state")).toHaveTextContent("0");
+    expect(getByTestId("user-detail")).toHaveTextContent('User Detail');
   });
   it.todo('Write a something test!');
 });

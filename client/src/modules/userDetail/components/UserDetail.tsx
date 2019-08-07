@@ -6,8 +6,8 @@ export const UserDetail = () => {
   const { selectedUserDetail } = getUserDetailState.useState();
 
   return (
-    <div>
-        <h3>User Detail</h3>
+    <div data-testid="div">
+        <h3 data-testid="user-detail">User Detail</h3>
             <li>userId: {selectedUserDetail.userId}</li>
             <li>sex: {selectedUserDetail.sex}</li>
             <li>age: {selectedUserDetail.age}</li>

@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { useActions } from "typeless";
 import * as Rx from 'typeless/rx';
-import { SampleActions, SampleState, useModule } from './interface';
+import { SampleActions, SampleState, useModule, getSampleState } from './interface';
 import { Sample } from './components/Sample';
 import { countService } from "../../service/CounterServer";
 
@@ -21,7 +22,11 @@ useModule
   .on(SampleActions.countDone, (payload: {count: number}) => {
       alert(`call countDone, count: ${payload.count}`);
       return Rx.empty();
-  });
+  })
+  .on(SampleActions.countZeroAlert, () => {
+      alert('current count state is 0!')
+      return Rx.empty();
+    });
 
 const initialState: SampleState = {
   isLoading: false,
@@ -39,17 +44,16 @@ useModule
   .on(SampleActions.countDone, (state, { count }) => {
     state.isLoading = false;
     state.count += count;
-    if(state.count === 0) {
-        // XXX: 特定の状態になったときに処理を行うの、ここに書くのが正しい？？
-        //      それともreducerは状態の変更以外は行うべきではないからダメ？そうだとすると実現方法は？
-        alert('current count state is 0!');
-    }
   });
 
 
 export const SampleModule = () => {
 
   useModule();
+  const { countZeroAlert } = useActions(SampleActions);
+  const { count } = getSampleState.useState();
+  // あるいは、countZeroAlertの中で分岐をさせるとか？inc, decの度に毎回走らせれば(Rx.mergeMapとかで)いけそう。
+  if (count === 0) countZeroAlert();
 
   return <Sample />;
 }
